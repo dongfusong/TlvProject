@@ -9,6 +9,7 @@
 #define CODECMACRODEFINE_H_
 
 #include "SimpleMessageCodec.h"
+#include "macroUndefine.h"
 
 #define BEGIN_STRUCT(name)\
 class name##MessageCodec : public SimpleMessageCodec{\

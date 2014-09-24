@@ -5,8 +5,8 @@
  *      Author: Thoughtworks
  */
 #include <gtest/gtest.h>
-#include "Codec.h"
-#include "StructMessageDefine.h"
+#include "MessageCodec.h"
+
 class TestTlv: public testing::Test {
 public:
 	void SetUp() {
