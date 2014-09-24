@@ -9,8 +9,9 @@
 #define TYPEDEFINE_H_
 
 typedef unsigned char _UC;
-typedef unsigned long _UL;
 typedef unsigned short _US;
+typedef unsigned int _UL;
+
 
 
 

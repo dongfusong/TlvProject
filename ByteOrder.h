@@ -11,11 +11,10 @@
 class ByteOrder
 {
 public:
-	static void ntoh(const _UC* src, _UC* dest, size_t size){
-		dest[0] = 0x12;
-		dest[1] = 0x12;
-		dest[2] = 0x12;
-		dest[3] = 0x12;
+	static void ntoh(const _UC* src, size_t sizeOfSrc,_UC* dest, size_t sizeOfDest){
+		assert(sizeOfDest <= sizeOfSrc);
+		for (int i = 0; i < sizeOfDest; i++)
+			dest[sizeOfDest - i - 1] = *(src + i);
 	}
 };
 
