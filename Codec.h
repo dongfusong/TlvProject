@@ -54,23 +54,16 @@ template<typename T, typename CODEC, size_t offset = 0>
 class OffsetCodec : public Codec
 {
 public:
+	static Codec& getInstance()
+	{
+		static OffsetCodec codec;
+		return codec;
+	}
 	void decode(Buffer& buffer, _UC* msg)
 	{
 		CODEC::getInstance().decode(buffer, msg + offset);
 	}
 };
-
-
-template <typename T, size_t offset>
-class IE_Codec : public OffsetCodec<T, GenericCodec<T>, offset>
-{
-public:
-	static Codec& getInstance(){
-			static IE_Codec codec;
-			return codec;
-		}
-};
-
 
 
 #endif /* CODEC_H_ */

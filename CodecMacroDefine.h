@@ -8,19 +8,28 @@
 #ifndef CODECMACRODEFINE_H_
 #define CODECMACRODEFINE_H_
 
-#include "SimpleMessageCodec.h"
 #include "macroUndefine.h"
+#include "SimpleMessageCodec.h"
+#include "SingleIeCodec.h"
+
 
 #define BEGIN_STRUCT(name)\
-class name##MessageCodec : public SimpleMessageCodec{\
+typedef  SingleIeCodec<name> name##MessageCodec;\
+template <>\
+class SingleIeCodec<name> : public SimpleMessageCodec{\
 public:\
 	typedef name thisType;\
+	static Codec& getInstance()\
+	{\
+		static SingleIeCodec<name> codec;\
+		return codec;\
+	}\
 	Getter* getCodecs()const{\
 		static Getter Codecs[] =\
 		{
 
 #define ROS_IE(type, memberOfStruct)\
-		IE_Codec<type, offsetof(thisType, memberOfStruct)>::getInstance,
+		OffsetCodec<type, SingleIeCodec<type>, offsetof(thisType, memberOfStruct) >::getInstance,
 
 #define END_STRUCT()\
 		0};\

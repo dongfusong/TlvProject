@@ -10,7 +10,7 @@
 #include "codec.h"
 #include <iostream>
 using namespace std;
-class SimpleMessageCodec
+class SimpleMessageCodec : public Codec
 {
 public:
 	typedef Codec& (*Getter)();

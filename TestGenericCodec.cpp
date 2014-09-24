@@ -27,11 +27,12 @@ TEST_F(TestGenericCodec, can_decode_ul)
 	codec.decode(bufObj, (_UC*)&value);
 	EXPECT_EQ(0x12345678, value);
 }
-struct MyStruct{
-	_UC index;
-	_UL value;
-};
+
 TEST_F(TestGenericCodec, test_offsetCodec){
+	struct MyStruct{
+		_UC index;
+		_UL value;
+	};
 	_UC buf[] = {
 			     	 0x12,0x34,0x56,0x78//_UL
 				};

@@ -18,6 +18,7 @@ public:
 	_UC* alloc(size_t size){
 		_UC* result = _ptr;
 		_ptr += size;
+		_size -= size;
 		return result;
 	}
 private:

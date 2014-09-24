@@ -5,22 +5,23 @@
  *      Author: Thoughtworks
  */
 
-#ifndef STRUCTMESSAGEDEFINE_H_
-#define STRUCTMESSAGEDEFINE_H_
-#include "CodecMacroDefine.h"
-
-struct MyStruct
-{
-	_UC index;
-	_UL value;
-};
+#include "typedefine.h"
 
 BEGIN_STRUCT(MyStruct)
 	ROS_IE(_UC, index)
 	ROS_IE(_UL, value)
 END_STRUCT()
 
+BEGIN_STRUCT(MyStruct1)
+	ROS_IE(_UC, index)
+	ROS_IE(_UL, value)
+	ROS_IE(MyStruct, text)
+END_STRUCT()
 
-
-
-#endif /* STRUCTMESSAGEDEFINE_H_ */
+#if 0
+BEGIN_TLV_STRUCT(MyStruct2)
+	ROS_TLV_IE(_UC, index)
+	ROS_TLV_IE(_UL, value)
+	ROS_TLV_IE(MyStruct, text)
+END_TLV_STRUCT()
+#endif

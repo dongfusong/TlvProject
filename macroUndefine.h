@@ -5,16 +5,14 @@
  *      Author: Thoughtworks
  */
 
-#ifdef BEGIN_STRUCT(name)
-#undef BEGIN_STRUCT(name)
+#ifdef BEGIN_STRUCT
+#undef BEGIN_STRUCT
 #endif
 
-
-#ifdef ROS_IE(type, memberOfStruct)
-#undef ROS_IE(type, memberOfStruct)
+#ifdef ROS_IE
+#undef ROS_IE
 #endif
 
-
-#ifdef END_STRUCT()
-#undef END_STRUCT()
+#ifdef END_STRUCT
+#undef END_STRUCT
 #endif

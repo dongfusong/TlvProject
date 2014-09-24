@@ -8,7 +8,7 @@
 #ifndef MESSGEDEFINE_H_
 #define MESSGEDEFINE_H_
 
-#include "macroUndefine.h"
+
 #include "StructMacroDefine.h"
 #include "StructMessageDefine.h"
 
